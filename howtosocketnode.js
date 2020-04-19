@@ -10,10 +10,12 @@ const wss = new webSocket.Server({
 });
 
 wss.on("headers", (headers, req) => {
+  // one event header after page reload
   console.log(headers);
   // console.log(req);
 });
 wss.on("connection", (ws, req) => {
+  // on event connection
   ws.send("Welcome to socketserver");
 });
 server.listen(8000);
