@@ -14,6 +14,13 @@
 
     const ws = new WebSocket("ws://localhost:8000");
     console.log(ws)
+
+    // as soon as connection open we will send message to the server 
+    ws.onopen = (event) => {
+      ws.send("I am so excited I am connected! It is like Christmas");
+      console.log(event, "after send messages")
+    }
+
     ws.onmessage = (event) => {
       console.log(event)
     }

@@ -17,5 +17,10 @@ wss.on("headers", (headers, req) => {
 wss.on("connection", (ws, req) => {
   // on event connection
   ws.send("Welcome to socketserver");
+  // reciving  message from front end
+  ws.on("message", (msg) => {
+    console.log(msg);
+  });
 });
+
 server.listen(8000);
